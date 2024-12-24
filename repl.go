@@ -5,10 +5,12 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/eseferr/pokedexcli/internal/pokeapi"
 )
-func startRepl(){
+func startRepl(cfg *config){
 	scanner:= bufio.NewScanner(os.Stdin)
-	config := &Config{}
+	config := &config{}
 	for {
 		fmt.Print("\nPokedex > ")
 		scanner.Scan()
@@ -34,14 +36,15 @@ func cleanInput(text string) []string {
 	words := strings.Fields(output)
 	return words
 }
-type Config struct{
-	Next *string
-	Previous *string
+type config struct {
+	pokeapiClient    pokeapi.Client
+	nextLocationsURL *string
+	prevLocationsURL *string
 }
 type cliCommand struct{
 	name string
 	description string
-	callback func(*Config) error
+	callback func(*config) error
 } 
 func getCommands() map[string]cliCommand{
 
