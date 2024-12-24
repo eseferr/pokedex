@@ -3,7 +3,7 @@ package main
 import (
 	"time"
 
-	"github.com/eseferr/pokedexcli/internal/pokeapi"
+	"github.com/eseferr/pokedexcli/pokeapi"
 )
 
 

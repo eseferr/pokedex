@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/eseferr/pokedexcli/internal/pokeapi"
+	"github.com/eseferr/pokedexcli/pokeapi"
 )
 func startRepl(cfg *config){
 	scanner:= bufio.NewScanner(os.Stdin)
@@ -36,7 +36,7 @@ func cleanInput(text string) []string {
 	return words
 }
 type config struct {
-	pokeapiClient    pokeapi.Client
+	pokeapiClient    *pokeapi.Client
 	nextLocationsURL *string
 	prevLocationsURL *string
 }
