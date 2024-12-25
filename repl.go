@@ -93,7 +93,7 @@ return map[string]cliCommand{
 	"pokedex":{
 		name: "pokedex",
 		description: "Display Pokedex",
-		callback: commandDisplayPokedex,
+		callback: commandPokedex,
 	},
 }
 }
