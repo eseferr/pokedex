@@ -23,7 +23,7 @@ func commandCatch(cfg *config, pokemonName string)error{
 	catchNumber := float64(rand.Intn(100))*(2/float64(pokemon.BaseExperience))
 	if catchNumber > 1{
 		addPokedex(cfg, pokemon)
-		fmt.Println(pokemonName+" was cought!")
+		fmt.Println(pokemonName+" was caught!")
 	} else {
 		fmt.Println(pokemonName + " escaped!")
 	}
