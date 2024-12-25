@@ -9,6 +9,12 @@ import (
 )
 
 func commandCatch(cfg *config, pokemonName string)error{
+	for key,_ := range cfg.pokedex.pokemons{
+		if key == pokemonName{
+			fmt.Println(pokemonName + " was already caught! Try another Pokemon")
+			return nil
+		}
+	}
 	fmt.Println("Throwing a Pokeball at "+ pokemonName+"...")
 	pokemon, err:= cfg.pokeapiClient.GetPokemon(pokemonName)
 	if err != nil {
@@ -16,7 +22,7 @@ func commandCatch(cfg *config, pokemonName string)error{
 	}
 	catchNumber := float64(rand.Intn(100))*(2/float64(pokemon.BaseExperience))
 	if catchNumber > 1{
-		//addPokedex(pokemon)
+		addPokedex(cfg, pokemon)
 		fmt.Println(pokemonName+" was cought!")
 	} else {
 		fmt.Println(pokemonName + " escaped!")
@@ -24,6 +30,6 @@ func commandCatch(cfg *config, pokemonName string)error{
 	return nil
 }
 func addPokedex(cfg *config, pokemon pokeapi.RespPokemon)error{
-	//cfg.pokedex.pokemons[pokemon.Name] = pokemon
+	cfg.pokedex.pokemons[pokemon.Name] = pokemon
 	return nil
 }

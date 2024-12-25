@@ -6,6 +6,7 @@ import (
 	"net/http"
 )
 
+// Lists and caches pokemons on any location
 func(c *Client) ListPokemonsLoc(pageURL *string, locationName string) (RespPokemonsLoc, error){
 	url := baseURL + "/location-area/" + locationName
 	if pageURL != nil {

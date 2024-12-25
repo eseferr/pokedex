@@ -84,5 +84,16 @@ return map[string]cliCommand{
 		description: "Catch Pokemons",
 		callback: commandCatch,
 	},
+	"inspect":{
+		name: "inspect",
+		description: "Inspect Pokemon",
+		callback: commandInspect,
+
+	},
+	"pokedex":{
+		name: "pokedex",
+		description: "Display Pokedex",
+		callback: commandDisplayPokedex,
+	},
 }
 }

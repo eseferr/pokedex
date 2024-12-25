@@ -14,6 +14,7 @@ type cacheEntry struct {
 	val []byte
 	
 }
+// Caching for every given time
 func (c *Cache)reapLoop(interval time.Duration){
 	ticker := time.NewTicker(interval)
 	for range ticker.C{

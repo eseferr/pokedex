@@ -1,6 +1,6 @@
 package pokeapi
 
-// RespPokemonsLoc -
+// RespPokemonsLoc
 type RespPokemonsLoc struct {
 	PokemonEncounters []struct{
 		Pokemon struct{
